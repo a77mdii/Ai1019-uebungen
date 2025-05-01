@@ -1,0 +1,45 @@
+# Aufgabe 1 – Farbverlauf als PPM-Bild erzeugen
+# Ziel: eigene save_ppm-Funktion schreiben + ein einfaches Bild erzeugen
+# Funktion, um Bild im PPM-Format zu speichern
+
+
+def save_ppm(filename, width, height, pixels):
+    with open(filename, "w") as f:
+        # Header für PPM-Textformat (P3 steht für RGB-Textdatei)
+        f.write(f"P3\n{width} {height}\n255\n")
+        for y in range(height):
+            for x in range(width):
+                r, g, b = pixels[y][x]
+                f.write(f"{r} {g} {b} ")
+            f.write("\n")
+
+#Bildgröße einstellen
+width = 256
+height = 256
+
+# Erstellen der Pixel (also Farbe jedes Punkts im Bild)
+pixels = []
+for y in range(height):
+    row = []
+    for x in range(width):
+        # Idee: Farbverlauf über die Fläche – x = rot, y = grün, b konstant
+
+        r = x            # je weiter rechts, desto roter
+        g = y            # je weiter unten, desto grüner
+        b = 128          # blau ist einfach konstant, ergibt lila/grün-Töne
+
+        # TEST: wenn man hier b = 255 macht → Bild wird blauer
+        # b = 255
+
+        # EXPERIMENT: diagonales Muster
+        # r = (x + y) // 2
+
+        # FRAGE: was passiert, wenn r+g+b > 255? (Antwort: nichts – PPM kann's darstellen, aber man muss aufpassen)
+
+        row.append((r, g, b))
+    pixels.append(row)
+
+# Speichert das Bild mit dem Namen "verlauf.ppm"
+save_ppm("verlauf.ppm", width, height, pixels)
+
+# FERTIG – Bild ist gespeichert. Kann mit z. B. GIMP geöffnet oder mit Online-PPM-Viewer angezeigt werden.
