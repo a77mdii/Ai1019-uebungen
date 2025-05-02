@@ -1,0 +1,33 @@
+# Aufgabe 2 – Der Würfel mit Perspektive
+
+## Was hab ich gemacht?
+
+In dieser Aufgabe habe ich einen 3D-Würfel gerendert und ihn in eine `.ppm`-Datei ausgegeben. Das Besondere dabei ist, dass die **Perspektive** berücksichtigt wird, also dass der Würfel so aussieht, als ob er sich in einem 3D-Raum befindet und von einer Kamera betrachtet wird. Jede Ecke des Würfels hat eine eigene Farbe, damit man die einzelnen Punkte gut sehen kann. Der Hintergrund ist ganz einfach weiß.
+
+### Was passiert im Code?
+
+1. **Die Ecken des Würfels**: Der Würfel hat 8 Ecken, die wir als Punkte im 3D-Raum definieren. Diese Punkte sind festgelegt, aber du kannst sie anpassen, wenn du willst. Der Würfel ist so platziert, dass er gut ins Bild passt.
+
+2. **Perspektive**: Um den Würfel von 3D auf 2D zu projizieren, wird für jede Ecke die **Perspektive** berechnet. Das heißt, die Punkte weiter weg (mit höherem z-Wert) erscheinen kleiner. Das wird durch die Perspektiv-Division gemacht, wo x und y durch z geteilt werden.
+
+3. **Farben**: Jeder Punkt des Würfels hat eine eigene Farbe. Ich habe einfach ein paar Farben genommen, die gut sichtbar sind, aber du kannst sie natürlich auch ändern.
+
+4. **Das Bild speichern**: Das Bild wird im **PPM-Format** gespeichert, was ein einfaches Bildformat ist. Die Datei heißt `cube_output.ppm` und kann mit Programmen wie **GIMP** oder **IrfanView** angeschaut werden.
+
+## Wie läuft das ab?
+
+1. **Python-Code ausführen**: Einfach den Python-Code ausführen, und schon wird das Bild erstellt.
+
+2. **Das Ergebnis**: Es wird eine Datei namens `cube_output.ppm` erstellt. Diese kannst du dir dann angucken und sehen, wie der Würfel mit der Perspektive aussieht.
+
+3. **Anzeigen**: Wenn du die `.ppm`-Datei öffnen willst, kannst du dafür Programme wie **GIMP** oder **IrfanView** benutzen. Diese sind kostenlos und unterstützen das PPM-Format.
+
+## Was hab ich dabei gelernt?
+
+- Wie man mit **Perspektive** arbeitet und wie man 3D-Koordinaten in 2D projiziert.
+- Wie man mit Python ein einfaches Bildformat wie PPM erstellt und speichert.
+- Wie man mit Farben und Koordinaten arbeitet, um interessante 3D-Bilder zu machen.
+
+## Fazit
+
+Es macht Spaß, so etwas wie einen 3D-Würfel zu visualisieren, und es ist auch gar nicht so schwer, wenn man die richtigen Schritte geht. Du kannst den Code leicht anpassen, um zum Beispiel die Farben zu ändern oder den Würfel anders zu positionieren. Also, viel Spaß beim Ausprobieren und Experimentieren! 😊
