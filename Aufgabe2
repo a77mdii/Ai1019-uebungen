@@ -1,1 +1,69 @@
 git commit -m "Aufgabe 2 abgeschlossen" -m "Würfel gerendert mit Perspective Divide, Farben und weißem Hintergrund".
+
+# cube_render.py
+
+import math  # Brauchen wir später vielleicht für Drehen, ist aber hier nicht nötig
+
+# Die 8 Ecken von einem Würfel im 3D-Raum
+# Jede Ecke hat x, y, z – also: links/rechts, oben/unten, vorne/hinten
+# Der Würfel ist näher an der Kamera (z = -4 oder -5)
+cube = [
+    [-1.0, -1.0, -4],
+    [-1.0, 1.0, -4],
+    [-1.0, -1.0, -5],
+    [-1.0, 1.0, -5],
+    [1.0, -1.0, -4],
+    [1.0, 1.0, -4],
+    [1.0, -1.0, -5],
+    [1.0, 1.0, -5],
+]
+
+# Jede Ecke bekommt eine andere Farbe
+colors = [
+    (255, 0, 0),     # Rot
+    (0, 255, 0),     # Grün
+    (0, 0, 255),     # Blau
+    (255, 255, 0),   # Gelb
+    (255, 0, 255),   # Pink
+    (0, 255, 255),   # Hellblau
+    (255, 165, 0),   # Orange
+    (128, 0, 128),   # Lila
+]
+
+# Hintergrundfarbe vom Bild – hier weiß
+background_color = (255, 255, 255)
+
+# Diese Funktion macht aus 3D-Koordinaten 2D-Koordinaten
+# Dafür teilen wir x und y durch z
+def perspective_divide(point):
+    x, y, z = point
+    return x / z, y / z
+
+# Diese Funktion erstellt das Bild und speichert es
+def create_ppm(cube, colors, background_color):
+    width, height = 800, 600  # Bildgröße
+    ppm_header = f"P3\n{width} {height}\n255\n"  # Anfang vom Bild (PPM-Datei)
+
+    # Wir machen ein leeres Bild mit weißem Hintergrund
+    framebuffer = [background_color] * (width * height)
+
+    # Jetzt malen wir die Würfelpunkte
+    for i, point in enumerate(cube):
+        x2D, y2D = perspective_divide(point)  # Rechnet von 3D nach 2D
+
+        # Wir verschieben die Punkte in die Mitte vom Bild
+        pixel_x = int((x2D + 1) * width / 2)
+        pixel_y = int((y2D + 1) * height / 2)
+
+        # Nur wenn der Punkt im Bild liegt, malen wir ihn
+        if 0 <= pixel_x < width and 0 <= pixel_y < height:
+            framebuffer[pixel_y * width + pixel_x] = colors[i]
+
+    # Jetzt schreiben wir das Bild in eine Datei
+    with open("cube_output.ppm", "w") as f:
+        f.write(ppm_header)
+        for color in framebuffer:
+            f.write(f"{color[0]} {color[1]} {color[2]}\n")
+
+# Wir rufen die Funktion auf und machen das Bild
+create_ppm(cube, colors, background_color)
