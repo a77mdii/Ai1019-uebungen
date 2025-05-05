@@ -18,7 +18,6 @@ Um die Struktur besser zu erkennen, bekommt jede Ecke eine eigene Farbe. So kann
 Speichern als Bild
 Das fertige Bild wird im .ppm-Format gespeichert – ein einfaches Textformat für Bilder. Es lässt sich z. B. mit GIMP oder IrfanView öffnen und anzeigen.
 
-
 Wie funktioniert das Ganze?
 
 Das Python-Programm wird ausgeführt.
