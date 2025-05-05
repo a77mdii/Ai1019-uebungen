@@ -1,33 +1,41 @@
-# Aufgabe 2 – Der Würfel mit Perspektive
+Aufgabe 2 – Ein Würfel mit Perspektive
 
-## Was hab ich gemacht?
+Was wurde gemacht?
 
-In dieser Aufgabe habe ich einen 3D-Würfel gerendert und ihn in eine `.ppm`-Datei ausgegeben. Das Besondere dabei ist, dass die **Perspektive** berücksichtigt wird, also dass der Würfel so aussieht, als ob er sich in einem 3D-Raum befindet und von einer Kamera betrachtet wird. Jede Ecke des Würfels hat eine eigene Farbe, damit man die einzelnen Punkte gut sehen kann. Der Hintergrund ist ganz einfach weiß.
+In dieser Aufgabe wird ein 3D-Würfel mit Perspektive dargestellt und als .ppm-Bilddatei gespeichert. Der Würfel sieht so aus, als würde er in einem echten Raum stehen – also nicht flach, sondern räumlich. Jede Ecke hat eine andere Farbe, damit man die Punkte gut auseinanderhalten kann. Der Hintergrund ist schlicht weiß gehalten, damit der Würfel gut zur Geltung kommt.
 
-### Was passiert im Code?
+Was passiert im Code?
 
-1. **Die Ecken des Würfels**: Der Würfel hat 8 Ecken, die wir als Punkte im 3D-Raum definieren. Diese Punkte sind festgelegt, aber du kannst sie anpassen, wenn du willst. Der Würfel ist so platziert, dass er gut ins Bild passt.
+Die Eckpunkte des Würfels
+Der Würfel besteht aus acht Punkten im 3D-Raum. Diese Punkte werden im Code festgelegt und bestimmen die Form und Lage des Würfels im Raum.
 
-2. **Perspektive**: Um den Würfel von 3D auf 2D zu projizieren, wird für jede Ecke die **Perspektive** berechnet. Das heißt, die Punkte weiter weg (mit höherem z-Wert) erscheinen kleiner. Das wird durch die Perspektiv-Division gemacht, wo x und y durch z geteilt werden.
+Die Perspektivdarstellung
+Damit der Würfel nicht einfach nur flach wirkt, wird eine Perspektivprojektion verwendet. Dabei werden die 3D-Punkte so umgerechnet, dass weiter entfernte Punkte kleiner erscheinen – genau wie im echten Leben. Das wird erreicht, indem die x- und y-Koordinaten durch den z-Wert geteilt werden.
 
-3. **Farben**: Jeder Punkt des Würfels hat eine eigene Farbe. Ich habe einfach ein paar Farben genommen, die gut sichtbar sind, aber du kannst sie natürlich auch ändern.
+Farbzuweisung
+Um die Struktur besser zu erkennen, bekommt jede Ecke eine eigene Farbe. So kann man gut sehen, wo welcher Punkt liegt – das macht die Darstellung anschaulicher.
 
-4. **Das Bild speichern**: Das Bild wird im **PPM-Format** gespeichert, was ein einfaches Bildformat ist. Die Datei heißt `cube_output.ppm` und kann mit Programmen wie **GIMP** oder **IrfanView** angeschaut werden.
+Speichern als Bild
+Das fertige Bild wird im .ppm-Format gespeichert – ein einfaches Textformat für Bilder. Es lässt sich z. B. mit GIMP oder IrfanView öffnen und anzeigen.
 
-## Wie läuft das ab?
 
-1. **Python-Code ausführen**: Einfach den Python-Code ausführen, und schon wird das Bild erstellt.
+Wie funktioniert das Ganze?
 
-2. **Das Ergebnis**: Es wird eine Datei namens `cube_output.ppm` erstellt. Diese kannst du dir dann angucken und sehen, wie der Würfel mit der Perspektive aussieht.
+Das Python-Programm wird ausgeführt.
 
-3. **Anzeigen**: Wenn du die `.ppm`-Datei öffnen willst, kannst du dafür Programme wie **GIMP** oder **IrfanView** benutzen. Diese sind kostenlos und unterstützen das PPM-Format.
+Es erstellt automatisch eine Bilddatei namens cube_output.ppm.
 
-## Was hab ich dabei gelernt?
+Diese Datei kann anschließend mit einem geeigneten Bildbetrachter geöffnet werden, um das Ergebnis zu sehen.
 
-- Wie man mit **Perspektive** arbeitet und wie man 3D-Koordinaten in 2D projiziert.
-- Wie man mit Python ein einfaches Bildformat wie PPM erstellt und speichert.
-- Wie man mit Farben und Koordinaten arbeitet, um interessante 3D-Bilder zu machen.
+Was lernt man dabei?
 
-## Fazit
+Wie man 3D-Koordinaten auf eine 2D-Fläche projiziert – und das mit Perspektive.
 
-Es macht Spaß, so etwas wie einen 3D-Würfel zu visualisieren, und es ist auch gar nicht so schwer, wenn man die richtigen Schritte geht. Du kannst den Code leicht anpassen, um zum Beispiel die Farben zu ändern oder den Würfel anders zu positionieren. Also, viel Spaß beim Ausprobieren und Experimentieren! 😊
+Wie einfache Bildformate wie .ppm funktionieren und wie man sie mit Python erzeugt.
+
+Wie Farben und räumliche Anordnung dabei helfen, Strukturen in einem Bild besser zu erkennen.
+
+Und ganz allgemein: Wie man eine kleine 3D-Szene ohne aufwendige Grafikbibliotheken selbst erstellen kann.
+
+Diese Aufgabe zeigt auf einfache, aber effektive Weise, wie man 3D-Objekte mit Perspektive visualisieren kann. Man bekommt ein gutes Gefühl dafür, wie perspektivisches Zeichnen in der Computergrafik funktioniert – und sieht sofort das Ergebnis seiner Arbeit. Die Umsetzung ist technisch nicht kompliziert, aber sie vermittelt wichtige Grundlagen, die in größeren 3D-Projekten eine große Rolle spielen können.
+
